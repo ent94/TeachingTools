@@ -23,16 +23,3 @@ def determine_grade(scores):
         return 'D-'
     else:
         return 'F'
-
-def meancalc(lst):
-    nstu = 0
-    tot = 0
-    for i in lst:
-        if i == 'Needs Grading':
-            continue
-        elif i == 'No Submission':
-            continue
-        else:
-            nstu+=1
-            tot+=float(i)
-    return tot/nstu
