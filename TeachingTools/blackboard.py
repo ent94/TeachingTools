@@ -1,3 +1,6 @@
+"""
+this progrma is the blackboard interface. (Not working?)
+"""
 import pandas as pd
 import numpy as np
 
