@@ -20,6 +20,7 @@ section()
 import pandas as pd
 import os
 from functions import determine_grade
+import json
 
 
 class student():
@@ -243,13 +244,13 @@ class course():
         for i in sorted(os.listdir(directory)):
             sectionnumber = i[i.find('_')+1:len(i)-4]
             listofsections.append(sectionnumber)
-            tempsect = section(os.path.join(directory, i))
+            tempsect = section(sectionnumber,os.path.join(directory, i))
             dictionary[sectionnumber] = tempsect
             sectusers[sectionnumber] = tempsect.stuL
             allstuL.extend(tempsect.stuL)
             sectassn[sectionnumber] = tempsect.assignL
             sectgrades[sectionnumber] = tempsect.shortGrade
-            totG += tempsect.shortGrade
+            totG+=tempsect.shortGrade
 
         masterassnL = []
 
@@ -330,7 +331,7 @@ class section():
         key = username, str and entry = assignments, str, that need grading in lists
     """
     
-    def __init__(self,sectionum,filename):
+    def __init__(self,sectionnum,filename):
         """
         Compiles and calculates all necessary information about the section object.
         
@@ -397,8 +398,10 @@ class section():
             atemp = assignment(j, stuL, pointsD, dataF)
             adict[j] = atemp
             agradeD[j] = atemp.avgper
-            anosubD[j] = atemp.nosub
-            aneedsgradeD[j] = atemp.needsgrade
+            if not(atemp.nosub == ['All assignments have been submitted']):
+                anosubD[j] = atemp.nosub
+            if not(atemp.needsgrade == ['No assignments need grading']):
+                aneedsgradeD[j] = atemp.needsgrade
 
         self.assnDict = adict
         self.agradeDict = agradeD
@@ -436,8 +439,19 @@ class section():
         self.stuDict = sdict
         self.snosubDict = snosubD
         self.sneedsgradeDict = sneedsgradeD
-
     def __str__(self):
         # This will eventually print useful information about the section
-        rope = 'This is what comes out of print(section)'
+        bra = ['[',']']
+        rope = ("""Section: {0} \n""" \
+                """Average Section Grade: {1} \n""" \
+                """------------------------ \n""" \
+                """Average Assignment Grade \n""" \
+                """------------------------ \n""" \
+                """{2} \n""" \
+                """------------------------ \n""" \
+                """   Missing Submissions \n""" \
+                """------------------------ \n""" \
+                """{3} \n"""
+                """------------------------ \n""" \
+                """WOO \n""").format(self.snum,round(self.shortGrade,2),json.dumps(self.agradeDict,indent=1)[2:-2],json.dumps(self.anosubDict,indent=1).replace('[','').replace(']','').replace(',','')[2:-4])
         return rope
