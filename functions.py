@@ -1,4 +1,27 @@
+"""
+Assign a letter grade to a percentage score.
+
+...
+
+Methods
+-------
+determine_grade(scores)
+    Returns the letter grade for the given percentage score.
+"""
 def determine_grade(scores):
+    """
+    Return the letter grade for the given percentage score.
+    
+    Parameters
+    ----------
+    scores : float
+        Percentage score to be converted
+        
+    Returns
+    -------
+    string : str
+        Letter grade for the given score
+    """
     if scores >= 93 and scores <= 100:
         return 'A'
     elif scores >= 90 and scores < 93:
