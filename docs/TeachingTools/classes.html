@@ -1,0 +1,1302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>TeachingTools.classes API documentation</title>
+<meta name="description" content="Calculate, Organize, and Display useful information when teaching a course with multiple sections …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>TeachingTools.classes</code></h1>
+</header>
+<section id="section-intro">
+<p>Calculate, Organize, and Display useful information when teaching a course with multiple sections.</p>
+<p>View information about individual students, assignments, and sections as well as overall course informtion
+across all sections.</p>
+<p>&hellip;</p>
+<h2 id="classes">Classes</h2>
+<p>student()
+Calculate and display information about an individual student
+assignment()
+Calculate and display information about an individual assignment
+course()
+Load in all data and compile/display course wide information
+section()
+Calculate and display information about an individual section</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Calculate, Organize, and Display useful information when teaching a course with multiple sections.
+
+View information about individual students, assignments, and sections as well as overall course informtion
+ across all sections.
+
+...
+
+Classes
+-------
+student()
+    Calculate and display information about an individual student
+assignment()
+    Calculate and display information about an individual assignment
+course()
+    Load in all data and compile/display course wide information
+section()
+    Calculate and display information about an individual section
+&#34;&#34;&#34;
+import pandas as pd
+import os
+from TeachingTools.functions import determine_grade
+import json
+
+
+class student():
+    &#34;&#34;&#34;
+    A class to represent a student.
+    
+    ...
+    
+    Attributes
+    ----------
+    uname : str
+        Student username
+    gradesD : dict
+        key = assignment name, str and entry = grade, float
+    nosub : lst
+        list of unsubmitted assignments, str
+    needsgrade : lst
+        list of ungraded assignments, str
+    allPer : float
+        grade percentage including all possible assignments
+    allLet : str
+        letter grade including all possible assignments
+    shortPer : float
+        percentage excluding ungraded and unsubmitted assignments
+    shortLet : str
+        letter grade excluding ungraded and unsubmitted assignemnts
+    &#34;&#34;&#34;
+    
+    def __init__(self, username, ptsDict, sectDF):
+        &#34;&#34;&#34;
+        Compiles and calculates all necessary information about the student object.
+        
+        Parameters
+        ----------
+            username : str
+                username of the student
+            ptsDict : dict
+                key = assignment name, str and entry = points possible, float
+            sectDF : DataFrame
+                all data for the section with username as key
+        &#34;&#34;&#34;
+        self.uname = username
+        
+        nosub = []
+        needsgrade = []
+        shortL = []
+        gradesD = {}
+        stuPts = 0
+        shortPoss = 0
+        longPoss = 0
+
+        for i in list(ptsDict.keys()):
+            gtemp = sectDF.at[username, i]
+            possPts = ptsDict[i]
+            longPoss += possPts
+            if gtemp == &#39;No Submission&#39;:
+                nosub.append(i)
+            elif gtemp == &#39;Needs Grading&#39;:
+                needsgrade.append(i)
+            else:
+                gtemp = float(gtemp)
+                stuPts += gtemp
+                shortPoss += possPts
+            gradesD[i] = gtemp
+
+        if needsgrade == []:
+            needsgrade.append(&#39;No assignments need grading&#39;)
+        if nosub == []:
+            nosub.append(&#39;All assignments have been submitted&#39;)
+
+        self.gradesD = gradesD
+        self.nosub = nosub
+        self.needsgrade = needsgrade
+        allPer = (stuPts/longPoss)*100
+        self.allPer = allPer
+        self.allLet = determine_grade(allPer)
+        shortPer = (stuPts/shortPoss)*100
+        self.shortPer = shortPer
+        self.shortLet = determine_grade(shortPer)
+
+    def __str__(self):
+        &#34;&#34;&#34;Print useful information about each student object.&#34;&#34;&#34;
+        newDict = {&#39;noSub&#39; : json.dumps(self.nosub,indent=1)[2:-3], \
+                   &#39;noGrade&#39; : json.dumps(self.needsgrade,indent=1)[2:-3]}
+
+        for i in newDict.keys():
+            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
+        
+        rope = (&#34;&#34;&#34;Student Username: {0} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.uname, \
+                                     round(self.shortPer,2), \
+                                     newDict[&#39;noSub&#39;], \
+                                     newDict[&#39;noGrade&#39;])
+        return rope
+
+
+class assignment():
+    &#34;&#34;&#34;
+    A class to represent an assignment.
+    
+    ...
+    
+    Attributes
+    ----------
+    aname : str
+        Assignment name
+    avgper : float
+        average assignment percentage in the section without needs grading, 
+        no submission, or 0&#39;s
+    avglet : str
+        average assignment letter grade (based on avgper) in the section
+    needsgrade : lst
+        list of usernames, str, in the section that need grading for the assignment
+    nosub : lst
+        list of usernames, str, in the section that have not submitted the assignment
+    &#34;&#34;&#34;
+    
+    def __init__(self, aname, stuL, ptsDict, sectData):
+        &#34;&#34;&#34;
+        Compiles and calculates all necessary information about the assignment object.
+        
+        Parameters
+        ----------
+        aname : str
+            name of the assignment
+        stuL : lst
+            list of usernames, str, in the section
+        ptsDict : dict
+            key = assignment name, str and entry = points possible, float
+        sectData : DataFrame
+            all data for the section with username as key
+        &#34;&#34;&#34;
+        self.aname = aname
+
+        pts = ptsDict[aname]
+        needsgrade = []
+        nosub = []
+        nstu = 0
+        tot = 0
+
+        for i in stuL:
+            grade = sectData.at[i, aname]
+            if grade == &#39;Needs Grading&#39;:
+                needsgrade.append(i)
+            elif grade == &#39;No Submission&#39;:
+                nosub.append(i)
+            elif float(grade) == 0:
+                continue
+            else:
+                nstu += 1
+                tot += float(grade)
+
+        if pts == 0:
+            p = [&#39;No average score&#39;]
+            let = [&#39;No letter grade&#39;]
+        else:
+            p = (tot/nstu)/pts*100
+            let = determine_grade(p)
+        if needsgrade == []:
+            needsgrade.append(&#39;All submitted assignments have been graded&#39;)
+        if nosub == []:
+            nosub.append(&#39;All assignments have been submitted&#39;)
+
+        self.avgper = p
+        self.avglet = let
+        self.needsgrade = needsgrade
+        self.nosub = nosub
+
+        # ***I never give anyone a straight up 0***
+        # ***I only put a 0 in when a student has not submitted something and has no intent to***
+        # ***I don&#39;t want them in my average because they don&#39;t represent real student work***
+        # ***I think it&#39;s really only useful to compare to real student work here***
+
+    def __str__(self):
+        &#34;&#34;&#34;Print useful information about each assignment object.&#34;&#34;&#34;
+        newDict = {&#39;noSub&#39; : json.dumps(self.nosub,indent=1)[2:-3], \
+                   &#39;noGrade&#39; : json.dumps(self.needsgrade,indent=1)[2:-3]}
+
+        for i in newDict.keys():
+            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
+        
+        rope = (&#34;&#34;&#34;Assignment Name: {0} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.aname, \
+                                     round(self.avgper,2), \
+                                     newDict[&#39;noSub&#39;], \
+                                     newDict[&#39;noGrade&#39;])
+        return rope
+
+
+class course():
+    &#34;&#34;&#34;
+    A class to represent an entire course.
+    
+    ...
+    
+    Attributes
+    ----------
+    cname: str
+        Course name
+    avgG : float
+        average student percentage grade
+    snumsL : lst
+        list of section numbers, str
+    allstu : lst
+        list of all student usernames, str
+    masterassnL : lst
+        list of all assignments, str, across all sections
+    sectD : dict
+        key = section number, str and entry = section, class object
+    sectusers : dict
+        key = section number, str and entry = usernames, str, in lists
+    sectgrades : dict
+        key = section number, str and entry = average student grade, float
+    assnsectnumD : dict
+        key = assignmnet name, str and entry = section numbers, str, that have that assignment in lists
+    assncourseavgD : dict
+        key = assignment name, str and enrtry = averge score across all sections, float
+    &#34;&#34;&#34;
+    
+    def __init__(self, directory):
+        &#34;&#34;&#34;
+        Compiles and calculates all necessary information about the course object.
+        
+        Parameters
+        ----------
+        directory : str
+            directory with location of .txt data files
+        &#34;&#34;&#34;
+        self.cname = directory[-7:-1]
+
+        dictionary = {}
+        sectusers = {}
+        sectassn = {}
+        sectgrades = {}
+        assngrades = {}
+        listofsections = []
+        allstuL = []
+        totG = 0
+
+        # Create all section objects and store them in a dictionary
+        for i in sorted(os.listdir(directory)):
+            sectionnumber = i[i.find(&#39;_&#39;)+1:len(i)-4]
+            listofsections.append(sectionnumber)
+            tempsect = section(sectionnumber,os.path.join(directory, i))
+            dictionary[sectionnumber] = tempsect
+            sectusers[sectionnumber] = tempsect.stuL
+            allstuL.extend(tempsect.stuL)
+            sectassn[sectionnumber] = tempsect.assignL
+            sectgrades[sectionnumber] = tempsect.shortGrade
+            totG+=tempsect.shortGrade
+
+        masterassnL = []
+
+        for j in listofsections:
+            for k in sectassn[j]:
+                if not(k in masterassnL):
+                    masterassnL.append(k)
+
+        assnsectnumD = {}
+        assncourseavgD = {}
+
+        for m in masterassnL:
+            assnsectnumL = []
+            totalg = 0
+            numsec = 0
+            for n in listofsections:
+                tsect = dictionary[n]
+                if m in sectassn[n]:
+                    assnsectnumL.append(n)
+                    if not(type(tsect.agradeDict[m]) == list):
+                        totalg += tsect.agradeDict[m]
+                    numsec += 1
+                assnsectnumD[m] = assnsectnumL
+            if not(totalg == 0):
+                assncourseavgD[m] = totalg/numsec
+
+        self.avgG = totG/len(listofsections)
+        self.snumsL = listofsections
+        self.allstu = allstuL
+        self.masterassnL = masterassnL
+        self.sectD = dictionary
+        self.sectusers = sectusers
+        self.sectgrades = sectgrades
+        self.assnsectnumD = assnsectnumD
+        self.assncourseavgD = assncourseavgD
+
+    def __str__(self):
+        &#34;&#34;&#34;Print useful information about each course object.&#34;&#34;&#34;
+        newDict = {&#39;avgSectGrade&#39; : json.dumps(self.sectgrades,indent=1)[2:-2], \
+                   &#39;avgAssnGrade&#39; : json.dumps(self.assncourseavgD,indent=1)[2:-4]}
+        
+        for i in newDict.keys():
+            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
+        
+        rope = (&#34;&#34;&#34;Course: {0} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Course Score: {1} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34; Average Section Score \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.cname, \
+                                     round(self.avgG,2), \
+                                     newDict[&#39;avgSectGrade&#39;], \
+                                     newDict[&#39;avgAssnGrade&#39;])
+        return rope
+
+class section():
+    &#34;&#34;&#34;
+    A class to represent a section.
+    
+    ...
+    
+    Attributes
+    ----------
+    snum : str
+        Section number
+    dataF : DataFrame
+        all data for the section
+    ptsD : dict
+        key = assignment name, str and entry = points possible, float
+    stuL : lst
+        list of all student usernames, str, in the section
+    assignL : lst
+        list of all assignments, str, that have point values in the section
+    assnDict : dict
+        key = assignment name, str and entry = assignment, class object
+    agradeDict : dict
+        key = assignment name, str and entry = average section grade, float
+    anosubDict : dict
+        key = assignment name, str and entry = usernames, str, that have not submitted in lists
+    aneedsgradeDict : dict
+        key = assignment name, str and entry = usernames, str, that need grades in lists
+    shortGrade : float
+        average percentage without grades below 30% or high levels of nosub/needsgrade
+    allGrade : float
+        average percentage of all students
+    stuDict : dict
+        key = username, str and entry = student, class object
+    snosubDict : dict
+        key = username, str and entry = assignments, str, that need submission in lists
+    sneedsgradeDict : dict
+        key = username, str and entry = assignments, str, that need grading in lists
+    &#34;&#34;&#34;
+    
+    def __init__(self,sectionnum,filename):
+        &#34;&#34;&#34;
+        Compiles and calculates all necessary information about the section object.
+        
+        Parameters
+        ----------
+        filename : str
+            file name where the section data is located
+        &#34;&#34;&#34;
+        dataF = pd.read_csv(filename)
+        self.snum = sectionnum
+
+        dropColumns = [&#39;Availability&#39;, &#39;Weighted Total&#39;,
+                       &#39;Total [Total&#39;, &#39;Safety Contract&#39;]
+
+        # Data Wrangling
+        matching = [s for s in dataF.columns if any(
+            xs in s for xs in dropColumns)]
+        dataF = dataF.drop(columns=matching)
+        ### ADD THIS IN AS AN OPTION BUT I WANT IT IN FOR NOW ###
+        # Drop columns that received no submissions
+        deadColumnsBool = dataF.isnull().values.all(axis=0)
+        deadColumns = []
+        for i in range(len(deadColumnsBool)):
+            if deadColumnsBool[i] == True:
+                ind = dataF.columns[i]
+                deadColumns.append(ind)
+        dataF = dataF.drop(columns=deadColumns)
+        dataF = dataF[:].fillna(&#39;No Submission&#39;)
+
+        collist = []
+        pointsD = {}
+        # assignL = []
+        for k in dataF.columns:
+            end = k.find(&#39;]&#39;)
+            if &#39;Attendance&#39; in k:
+                collist.append(&#39;Attendance&#39;)
+            elif &#39;Complete/Incomplete&#39; in k:
+                collist.append(k[0:start-2])
+                # assignL.append(k[0:start-2]) #
+            elif end != -1:
+                start = k.find(&#39;[&#39;)
+                start = k.find(&#39;[&#39;)
+                pointsD[k[0:start-1]] = float(k[start+12:end-6])
+                collist.append(k[0:start-1])
+                # assignL.append(k[0:start-1])
+            else:
+                collist.append(k)
+        dataF.columns = collist
+        dataF = dataF.set_index([&#39;Username&#39;])
+
+        self.dataF = dataF
+        self.ptsD = pointsD
+        stuL = dataF.index.values.tolist()
+        self.stuL = stuL
+        assignL = list(pointsD.keys())
+        self.assignL = assignL
+
+        # Create all assignment objects and store them in a dictionary
+        adict = {}
+        agradeD = {}
+        anosubD = {}
+        aneedsgradeD = {}
+        for j in assignL:
+            atemp = assignment(j, stuL, pointsD, dataF)
+            adict[j] = atemp
+            agradeD[j] = atemp.avgper
+            if not(atemp.nosub == [&#39;All assignments have been submitted&#39;]):
+                anosubD[j] = atemp.nosub
+            if not(atemp.needsgrade == [&#39;All submitted assignments have been graded&#39;]):
+                aneedsgradeD[j] = atemp.needsgrade
+
+        self.assnDict = adict
+        self.agradeDict = agradeD
+        self.anosubDict = anosubD
+        self.aneedsgradeDict = aneedsgradeD
+
+        # Create all student objects and store them in a dictionary
+        sdict = {}
+        snosubD = {}
+        sneedsgradeD = {}
+        total = 0
+        stuNum = 0
+        alltotal = 0
+        allstuNum = 0
+        for m in stuL:
+            stemp = student(m, pointsD, dataF)
+            sdict[m] = stemp
+            snosubD[m] = stemp.nosub
+            sneedsgradeD[m] = stemp.needsgrade
+
+            alltotal += stemp.shortPer
+            allstuNum += 1
+
+            if stemp.shortPer &lt; 40 or ((len(stemp.nosub)+len(stemp.needsgrade))/len(list(stemp.gradesD.keys())) &gt; 0.3):
+                # ***If a student has stopped submitting work and received a ton of 0&#39;s***
+                # ***or needs a significant amount submitted or graded don&#39;t include them***
+                # ***in the section average. I chose the 40/0.3 based on observation.***
+                continue
+            else:
+                total += stemp.shortPer
+                stuNum += 1
+
+        self.shortGrade = total/stuNum
+        self.allGrade = alltotal/allstuNum
+        self.stuDict = sdict
+        self.snosubDict = snosubD
+        self.sneedsgradeDict = sneedsgradeD
+    def __str__(self):
+        &#34;&#34;&#34;Print useful information about each section object.&#34;&#34;&#34;
+        newDict = {&#39;avgAssnGrade&#39; : json.dumps(self.agradeDict,indent=1)[2:-2], \
+                   &#39;noSub&#39; : json.dumps(self.anosubDict,indent=1)[2:-4], \
+                   &#39;noGrade&#39; : json.dumps(self.aneedsgradeDict,indent=1)[2:-4]}
+
+        for i in newDict.keys():
+            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
+        
+        rope = (&#34;&#34;&#34;Section: {0} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Section Score: {1} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{4} \n&#34;&#34;&#34;).format(self.snum, \
+                                     round(self.shortGrade,2), \
+                                     newDict[&#39;noSub&#39;], \
+                                     newDict[&#39;noGrade&#39;], \
+                                     newDict[&#39;avgAssnGrade&#39;])
+        return rope</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="TeachingTools.classes.assignment"><code class="flex name class">
+<span>class <span class="ident">assignment</span></span>
+<span>(</span><span>aname, stuL, ptsDict, sectData)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class to represent an assignment.</p>
+<p>&hellip;</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>aname</code></strong> :&ensp;<code>str</code></dt>
+<dd>Assignment name</dd>
+<dt><strong><code>avgper</code></strong> :&ensp;<code>float</code></dt>
+<dd>average assignment percentage in the section without needs grading,
+no submission, or 0's</dd>
+<dt><strong><code>avglet</code></strong> :&ensp;<code>str</code></dt>
+<dd>average assignment letter grade (based on avgper) in the section</dd>
+<dt><strong><code>needsgrade</code></strong> :&ensp;<code>lst</code></dt>
+<dd>list of usernames, str, in the section that need grading for the assignment</dd>
+<dt><strong><code>nosub</code></strong> :&ensp;<code>lst</code></dt>
+<dd>list of usernames, str, in the section that have not submitted the assignment</dd>
+</dl>
+<p>Compiles and calculates all necessary information about the assignment object.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>aname</code></strong> :&ensp;<code>str</code></dt>
+<dd>name of the assignment</dd>
+<dt><strong><code>stuL</code></strong> :&ensp;<code>lst</code></dt>
+<dd>list of usernames, str, in the section</dd>
+<dt><strong><code>ptsDict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = assignment name, str and entry = points possible, float</dd>
+<dt><strong><code>sectData</code></strong> :&ensp;<code>DataFrame</code></dt>
+<dd>all data for the section with username as key</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class assignment():
+    &#34;&#34;&#34;
+    A class to represent an assignment.
+    
+    ...
+    
+    Attributes
+    ----------
+    aname : str
+        Assignment name
+    avgper : float
+        average assignment percentage in the section without needs grading, 
+        no submission, or 0&#39;s
+    avglet : str
+        average assignment letter grade (based on avgper) in the section
+    needsgrade : lst
+        list of usernames, str, in the section that need grading for the assignment
+    nosub : lst
+        list of usernames, str, in the section that have not submitted the assignment
+    &#34;&#34;&#34;
+    
+    def __init__(self, aname, stuL, ptsDict, sectData):
+        &#34;&#34;&#34;
+        Compiles and calculates all necessary information about the assignment object.
+        
+        Parameters
+        ----------
+        aname : str
+            name of the assignment
+        stuL : lst
+            list of usernames, str, in the section
+        ptsDict : dict
+            key = assignment name, str and entry = points possible, float
+        sectData : DataFrame
+            all data for the section with username as key
+        &#34;&#34;&#34;
+        self.aname = aname
+
+        pts = ptsDict[aname]
+        needsgrade = []
+        nosub = []
+        nstu = 0
+        tot = 0
+
+        for i in stuL:
+            grade = sectData.at[i, aname]
+            if grade == &#39;Needs Grading&#39;:
+                needsgrade.append(i)
+            elif grade == &#39;No Submission&#39;:
+                nosub.append(i)
+            elif float(grade) == 0:
+                continue
+            else:
+                nstu += 1
+                tot += float(grade)
+
+        if pts == 0:
+            p = [&#39;No average score&#39;]
+            let = [&#39;No letter grade&#39;]
+        else:
+            p = (tot/nstu)/pts*100
+            let = determine_grade(p)
+        if needsgrade == []:
+            needsgrade.append(&#39;All submitted assignments have been graded&#39;)
+        if nosub == []:
+            nosub.append(&#39;All assignments have been submitted&#39;)
+
+        self.avgper = p
+        self.avglet = let
+        self.needsgrade = needsgrade
+        self.nosub = nosub
+
+        # ***I never give anyone a straight up 0***
+        # ***I only put a 0 in when a student has not submitted something and has no intent to***
+        # ***I don&#39;t want them in my average because they don&#39;t represent real student work***
+        # ***I think it&#39;s really only useful to compare to real student work here***
+
+    def __str__(self):
+        &#34;&#34;&#34;Print useful information about each assignment object.&#34;&#34;&#34;
+        newDict = {&#39;noSub&#39; : json.dumps(self.nosub,indent=1)[2:-3], \
+                   &#39;noGrade&#39; : json.dumps(self.needsgrade,indent=1)[2:-3]}
+
+        for i in newDict.keys():
+            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
+        
+        rope = (&#34;&#34;&#34;Assignment Name: {0} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.aname, \
+                                     round(self.avgper,2), \
+                                     newDict[&#39;noSub&#39;], \
+                                     newDict[&#39;noGrade&#39;])
+        return rope</code></pre>
+</details>
+</dd>
+<dt id="TeachingTools.classes.course"><code class="flex name class">
+<span>class <span class="ident">course</span></span>
+<span>(</span><span>directory)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class to represent an entire course.</p>
+<p>&hellip;</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>cname</code></strong> :&ensp;<code>str</code></dt>
+<dd>Course name</dd>
+<dt><strong><code>avgG</code></strong> :&ensp;<code>float</code></dt>
+<dd>average student percentage grade</dd>
+<dt><strong><code>snumsL</code></strong> :&ensp;<code>lst</code></dt>
+<dd>list of section numbers, str</dd>
+<dt><strong><code>allstu</code></strong> :&ensp;<code>lst</code></dt>
+<dd>list of all student usernames, str</dd>
+<dt><strong><code>masterassnL</code></strong> :&ensp;<code>lst</code></dt>
+<dd>list of all assignments, str, across all sections</dd>
+<dt><strong><code>sectD</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = section number, str and entry = section, class object</dd>
+<dt><strong><code>sectusers</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = section number, str and entry = usernames, str, in lists</dd>
+<dt><strong><code>sectgrades</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = section number, str and entry = average student grade, float</dd>
+<dt><strong><code>assnsectnumD</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = assignmnet name, str and entry = section numbers, str, that have that assignment in lists</dd>
+<dt><strong><code>assncourseavgD</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = assignment name, str and enrtry = averge score across all sections, float</dd>
+</dl>
+<p>Compiles and calculates all necessary information about the course object.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>directory</code></strong> :&ensp;<code>str</code></dt>
+<dd>directory with location of .txt data files</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class course():
+    &#34;&#34;&#34;
+    A class to represent an entire course.
+    
+    ...
+    
+    Attributes
+    ----------
+    cname: str
+        Course name
+    avgG : float
+        average student percentage grade
+    snumsL : lst
+        list of section numbers, str
+    allstu : lst
+        list of all student usernames, str
+    masterassnL : lst
+        list of all assignments, str, across all sections
+    sectD : dict
+        key = section number, str and entry = section, class object
+    sectusers : dict
+        key = section number, str and entry = usernames, str, in lists
+    sectgrades : dict
+        key = section number, str and entry = average student grade, float
+    assnsectnumD : dict
+        key = assignmnet name, str and entry = section numbers, str, that have that assignment in lists
+    assncourseavgD : dict
+        key = assignment name, str and enrtry = averge score across all sections, float
+    &#34;&#34;&#34;
+    
+    def __init__(self, directory):
+        &#34;&#34;&#34;
+        Compiles and calculates all necessary information about the course object.
+        
+        Parameters
+        ----------
+        directory : str
+            directory with location of .txt data files
+        &#34;&#34;&#34;
+        self.cname = directory[-7:-1]
+
+        dictionary = {}
+        sectusers = {}
+        sectassn = {}
+        sectgrades = {}
+        assngrades = {}
+        listofsections = []
+        allstuL = []
+        totG = 0
+
+        # Create all section objects and store them in a dictionary
+        for i in sorted(os.listdir(directory)):
+            sectionnumber = i[i.find(&#39;_&#39;)+1:len(i)-4]
+            listofsections.append(sectionnumber)
+            tempsect = section(sectionnumber,os.path.join(directory, i))
+            dictionary[sectionnumber] = tempsect
+            sectusers[sectionnumber] = tempsect.stuL
+            allstuL.extend(tempsect.stuL)
+            sectassn[sectionnumber] = tempsect.assignL
+            sectgrades[sectionnumber] = tempsect.shortGrade
+            totG+=tempsect.shortGrade
+
+        masterassnL = []
+
+        for j in listofsections:
+            for k in sectassn[j]:
+                if not(k in masterassnL):
+                    masterassnL.append(k)
+
+        assnsectnumD = {}
+        assncourseavgD = {}
+
+        for m in masterassnL:
+            assnsectnumL = []
+            totalg = 0
+            numsec = 0
+            for n in listofsections:
+                tsect = dictionary[n]
+                if m in sectassn[n]:
+                    assnsectnumL.append(n)
+                    if not(type(tsect.agradeDict[m]) == list):
+                        totalg += tsect.agradeDict[m]
+                    numsec += 1
+                assnsectnumD[m] = assnsectnumL
+            if not(totalg == 0):
+                assncourseavgD[m] = totalg/numsec
+
+        self.avgG = totG/len(listofsections)
+        self.snumsL = listofsections
+        self.allstu = allstuL
+        self.masterassnL = masterassnL
+        self.sectD = dictionary
+        self.sectusers = sectusers
+        self.sectgrades = sectgrades
+        self.assnsectnumD = assnsectnumD
+        self.assncourseavgD = assncourseavgD
+
+    def __str__(self):
+        &#34;&#34;&#34;Print useful information about each course object.&#34;&#34;&#34;
+        newDict = {&#39;avgSectGrade&#39; : json.dumps(self.sectgrades,indent=1)[2:-2], \
+                   &#39;avgAssnGrade&#39; : json.dumps(self.assncourseavgD,indent=1)[2:-4]}
+        
+        for i in newDict.keys():
+            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
+        
+        rope = (&#34;&#34;&#34;Course: {0} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Course Score: {1} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34; Average Section Score \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.cname, \
+                                     round(self.avgG,2), \
+                                     newDict[&#39;avgSectGrade&#39;], \
+                                     newDict[&#39;avgAssnGrade&#39;])
+        return rope</code></pre>
+</details>
+</dd>
+<dt id="TeachingTools.classes.section"><code class="flex name class">
+<span>class <span class="ident">section</span></span>
+<span>(</span><span>sectionnum, filename)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class to represent a section.</p>
+<p>&hellip;</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>snum</code></strong> :&ensp;<code>str</code></dt>
+<dd>Section number</dd>
+<dt><strong><code>dataF</code></strong> :&ensp;<code>DataFrame</code></dt>
+<dd>all data for the section</dd>
+<dt><strong><code>ptsD</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = assignment name, str and entry = points possible, float</dd>
+<dt><strong><code>stuL</code></strong> :&ensp;<code>lst</code></dt>
+<dd>list of all student usernames, str, in the section</dd>
+<dt><strong><code>assignL</code></strong> :&ensp;<code>lst</code></dt>
+<dd>list of all assignments, str, that have point values in the section</dd>
+<dt><strong><code>assnDict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = assignment name, str and entry = assignment, class object</dd>
+<dt><strong><code>agradeDict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = assignment name, str and entry = average section grade, float</dd>
+<dt><strong><code>anosubDict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = assignment name, str and entry = usernames, str, that have not submitted in lists</dd>
+<dt><strong><code>aneedsgradeDict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = assignment name, str and entry = usernames, str, that need grades in lists</dd>
+<dt><strong><code>shortGrade</code></strong> :&ensp;<code>float</code></dt>
+<dd>average percentage without grades below 30% or high levels of nosub/needsgrade</dd>
+<dt><strong><code>allGrade</code></strong> :&ensp;<code>float</code></dt>
+<dd>average percentage of all students</dd>
+<dt><strong><code>stuDict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = username, str and entry = student, class object</dd>
+<dt><strong><code>snosubDict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = username, str and entry = assignments, str, that need submission in lists</dd>
+<dt><strong><code>sneedsgradeDict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = username, str and entry = assignments, str, that need grading in lists</dd>
+</dl>
+<p>Compiles and calculates all necessary information about the section object.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>filename</code></strong> :&ensp;<code>str</code></dt>
+<dd>file name where the section data is located</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class section():
+    &#34;&#34;&#34;
+    A class to represent a section.
+    
+    ...
+    
+    Attributes
+    ----------
+    snum : str
+        Section number
+    dataF : DataFrame
+        all data for the section
+    ptsD : dict
+        key = assignment name, str and entry = points possible, float
+    stuL : lst
+        list of all student usernames, str, in the section
+    assignL : lst
+        list of all assignments, str, that have point values in the section
+    assnDict : dict
+        key = assignment name, str and entry = assignment, class object
+    agradeDict : dict
+        key = assignment name, str and entry = average section grade, float
+    anosubDict : dict
+        key = assignment name, str and entry = usernames, str, that have not submitted in lists
+    aneedsgradeDict : dict
+        key = assignment name, str and entry = usernames, str, that need grades in lists
+    shortGrade : float
+        average percentage without grades below 30% or high levels of nosub/needsgrade
+    allGrade : float
+        average percentage of all students
+    stuDict : dict
+        key = username, str and entry = student, class object
+    snosubDict : dict
+        key = username, str and entry = assignments, str, that need submission in lists
+    sneedsgradeDict : dict
+        key = username, str and entry = assignments, str, that need grading in lists
+    &#34;&#34;&#34;
+    
+    def __init__(self,sectionnum,filename):
+        &#34;&#34;&#34;
+        Compiles and calculates all necessary information about the section object.
+        
+        Parameters
+        ----------
+        filename : str
+            file name where the section data is located
+        &#34;&#34;&#34;
+        dataF = pd.read_csv(filename)
+        self.snum = sectionnum
+
+        dropColumns = [&#39;Availability&#39;, &#39;Weighted Total&#39;,
+                       &#39;Total [Total&#39;, &#39;Safety Contract&#39;]
+
+        # Data Wrangling
+        matching = [s for s in dataF.columns if any(
+            xs in s for xs in dropColumns)]
+        dataF = dataF.drop(columns=matching)
+        ### ADD THIS IN AS AN OPTION BUT I WANT IT IN FOR NOW ###
+        # Drop columns that received no submissions
+        deadColumnsBool = dataF.isnull().values.all(axis=0)
+        deadColumns = []
+        for i in range(len(deadColumnsBool)):
+            if deadColumnsBool[i] == True:
+                ind = dataF.columns[i]
+                deadColumns.append(ind)
+        dataF = dataF.drop(columns=deadColumns)
+        dataF = dataF[:].fillna(&#39;No Submission&#39;)
+
+        collist = []
+        pointsD = {}
+        # assignL = []
+        for k in dataF.columns:
+            end = k.find(&#39;]&#39;)
+            if &#39;Attendance&#39; in k:
+                collist.append(&#39;Attendance&#39;)
+            elif &#39;Complete/Incomplete&#39; in k:
+                collist.append(k[0:start-2])
+                # assignL.append(k[0:start-2]) #
+            elif end != -1:
+                start = k.find(&#39;[&#39;)
+                start = k.find(&#39;[&#39;)
+                pointsD[k[0:start-1]] = float(k[start+12:end-6])
+                collist.append(k[0:start-1])
+                # assignL.append(k[0:start-1])
+            else:
+                collist.append(k)
+        dataF.columns = collist
+        dataF = dataF.set_index([&#39;Username&#39;])
+
+        self.dataF = dataF
+        self.ptsD = pointsD
+        stuL = dataF.index.values.tolist()
+        self.stuL = stuL
+        assignL = list(pointsD.keys())
+        self.assignL = assignL
+
+        # Create all assignment objects and store them in a dictionary
+        adict = {}
+        agradeD = {}
+        anosubD = {}
+        aneedsgradeD = {}
+        for j in assignL:
+            atemp = assignment(j, stuL, pointsD, dataF)
+            adict[j] = atemp
+            agradeD[j] = atemp.avgper
+            if not(atemp.nosub == [&#39;All assignments have been submitted&#39;]):
+                anosubD[j] = atemp.nosub
+            if not(atemp.needsgrade == [&#39;All submitted assignments have been graded&#39;]):
+                aneedsgradeD[j] = atemp.needsgrade
+
+        self.assnDict = adict
+        self.agradeDict = agradeD
+        self.anosubDict = anosubD
+        self.aneedsgradeDict = aneedsgradeD
+
+        # Create all student objects and store them in a dictionary
+        sdict = {}
+        snosubD = {}
+        sneedsgradeD = {}
+        total = 0
+        stuNum = 0
+        alltotal = 0
+        allstuNum = 0
+        for m in stuL:
+            stemp = student(m, pointsD, dataF)
+            sdict[m] = stemp
+            snosubD[m] = stemp.nosub
+            sneedsgradeD[m] = stemp.needsgrade
+
+            alltotal += stemp.shortPer
+            allstuNum += 1
+
+            if stemp.shortPer &lt; 40 or ((len(stemp.nosub)+len(stemp.needsgrade))/len(list(stemp.gradesD.keys())) &gt; 0.3):
+                # ***If a student has stopped submitting work and received a ton of 0&#39;s***
+                # ***or needs a significant amount submitted or graded don&#39;t include them***
+                # ***in the section average. I chose the 40/0.3 based on observation.***
+                continue
+            else:
+                total += stemp.shortPer
+                stuNum += 1
+
+        self.shortGrade = total/stuNum
+        self.allGrade = alltotal/allstuNum
+        self.stuDict = sdict
+        self.snosubDict = snosubD
+        self.sneedsgradeDict = sneedsgradeD
+    def __str__(self):
+        &#34;&#34;&#34;Print useful information about each section object.&#34;&#34;&#34;
+        newDict = {&#39;avgAssnGrade&#39; : json.dumps(self.agradeDict,indent=1)[2:-2], \
+                   &#39;noSub&#39; : json.dumps(self.anosubDict,indent=1)[2:-4], \
+                   &#39;noGrade&#39; : json.dumps(self.aneedsgradeDict,indent=1)[2:-4]}
+
+        for i in newDict.keys():
+            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
+        
+        rope = (&#34;&#34;&#34;Section: {0} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Section Score: {1} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{4} \n&#34;&#34;&#34;).format(self.snum, \
+                                     round(self.shortGrade,2), \
+                                     newDict[&#39;noSub&#39;], \
+                                     newDict[&#39;noGrade&#39;], \
+                                     newDict[&#39;avgAssnGrade&#39;])
+        return rope</code></pre>
+</details>
+</dd>
+<dt id="TeachingTools.classes.student"><code class="flex name class">
+<span>class <span class="ident">student</span></span>
+<span>(</span><span>username, ptsDict, sectDF)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class to represent a student.</p>
+<p>&hellip;</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>uname</code></strong> :&ensp;<code>str</code></dt>
+<dd>Student username</dd>
+<dt><strong><code>gradesD</code></strong> :&ensp;<code>dict</code></dt>
+<dd>key = assignment name, str and entry = grade, float</dd>
+<dt><strong><code>nosub</code></strong> :&ensp;<code>lst</code></dt>
+<dd>list of unsubmitted assignments, str</dd>
+<dt><strong><code>needsgrade</code></strong> :&ensp;<code>lst</code></dt>
+<dd>list of ungraded assignments, str</dd>
+<dt><strong><code>allPer</code></strong> :&ensp;<code>float</code></dt>
+<dd>grade percentage including all possible assignments</dd>
+<dt><strong><code>allLet</code></strong> :&ensp;<code>str</code></dt>
+<dd>letter grade including all possible assignments</dd>
+<dt><strong><code>shortPer</code></strong> :&ensp;<code>float</code></dt>
+<dd>percentage excluding ungraded and unsubmitted assignments</dd>
+<dt><strong><code>shortLet</code></strong> :&ensp;<code>str</code></dt>
+<dd>letter grade excluding ungraded and unsubmitted assignemnts</dd>
+</dl>
+<p>Compiles and calculates all necessary information about the student object.</p>
+<h2 id="parameters">Parameters</h2>
+<pre><code>username : str
+    username of the student
+ptsDict : dict
+    key = assignment name, str and entry = points possible, float
+sectDF : DataFrame
+    all data for the section with username as key
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class student():
+    &#34;&#34;&#34;
+    A class to represent a student.
+    
+    ...
+    
+    Attributes
+    ----------
+    uname : str
+        Student username
+    gradesD : dict
+        key = assignment name, str and entry = grade, float
+    nosub : lst
+        list of unsubmitted assignments, str
+    needsgrade : lst
+        list of ungraded assignments, str
+    allPer : float
+        grade percentage including all possible assignments
+    allLet : str
+        letter grade including all possible assignments
+    shortPer : float
+        percentage excluding ungraded and unsubmitted assignments
+    shortLet : str
+        letter grade excluding ungraded and unsubmitted assignemnts
+    &#34;&#34;&#34;
+    
+    def __init__(self, username, ptsDict, sectDF):
+        &#34;&#34;&#34;
+        Compiles and calculates all necessary information about the student object.
+        
+        Parameters
+        ----------
+            username : str
+                username of the student
+            ptsDict : dict
+                key = assignment name, str and entry = points possible, float
+            sectDF : DataFrame
+                all data for the section with username as key
+        &#34;&#34;&#34;
+        self.uname = username
+        
+        nosub = []
+        needsgrade = []
+        shortL = []
+        gradesD = {}
+        stuPts = 0
+        shortPoss = 0
+        longPoss = 0
+
+        for i in list(ptsDict.keys()):
+            gtemp = sectDF.at[username, i]
+            possPts = ptsDict[i]
+            longPoss += possPts
+            if gtemp == &#39;No Submission&#39;:
+                nosub.append(i)
+            elif gtemp == &#39;Needs Grading&#39;:
+                needsgrade.append(i)
+            else:
+                gtemp = float(gtemp)
+                stuPts += gtemp
+                shortPoss += possPts
+            gradesD[i] = gtemp
+
+        if needsgrade == []:
+            needsgrade.append(&#39;No assignments need grading&#39;)
+        if nosub == []:
+            nosub.append(&#39;All assignments have been submitted&#39;)
+
+        self.gradesD = gradesD
+        self.nosub = nosub
+        self.needsgrade = needsgrade
+        allPer = (stuPts/longPoss)*100
+        self.allPer = allPer
+        self.allLet = determine_grade(allPer)
+        shortPer = (stuPts/shortPoss)*100
+        self.shortPer = shortPer
+        self.shortLet = determine_grade(shortPer)
+
+    def __str__(self):
+        &#34;&#34;&#34;Print useful information about each student object.&#34;&#34;&#34;
+        newDict = {&#39;noSub&#39; : json.dumps(self.nosub,indent=1)[2:-3], \
+                   &#39;noGrade&#39; : json.dumps(self.needsgrade,indent=1)[2:-3]}
+
+        for i in newDict.keys():
+            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
+        
+        rope = (&#34;&#34;&#34;Student Username: {0} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.uname, \
+                                     round(self.shortPer,2), \
+                                     newDict[&#39;noSub&#39;], \
+                                     newDict[&#39;noGrade&#39;])
+        return rope</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#classes">Classes</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="TeachingTools" href="index.html">TeachingTools</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="TeachingTools.classes.assignment" href="#TeachingTools.classes.assignment">assignment</a></code></h4>
+</li>
+<li>
+<h4><code><a title="TeachingTools.classes.course" href="#TeachingTools.classes.course">course</a></code></h4>
+</li>
+<li>
+<h4><code><a title="TeachingTools.classes.section" href="#TeachingTools.classes.section">section</a></code></h4>
+</li>
+<li>
+<h4><code><a title="TeachingTools.classes.student" href="#TeachingTools.classes.student">student</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
