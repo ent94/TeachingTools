@@ -7,6 +7,7 @@ When teaching any course, it is important to have up to date and accurate summar
 ## An Intro to TeachingTools
 
 Watch an introductory video to see what TeachingTools is and how to use it
+[Link to video](https://youtu.be/YksOR1ihRKs)
 
 ## Documentation
 
