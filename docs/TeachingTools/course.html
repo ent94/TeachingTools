@@ -28,13 +28,16 @@ informtion across all sections.</p>
 <p>&hellip;</p>
 <h2 id="classes">Classes</h2>
 <p>student()
-Calculate and display information about an individual student
+calculate and display information about an individual student
 assignment()
-Calculate and display information about an individual assignment
+calculate and display information about an individual assignment
 course()
-Load in all data and compile/display course wide information
+load in all data and compile/display course wide information
 section()
-Calculate and display information about an individual section</p>
+calculate and display information about an individual section</p>
+<h2 id="methods">Methods</h2>
+<p>determine_grade(scores)
+returns the letter grade for the given percentage score.</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -50,40 +53,35 @@ View information about individual students, assignments, and sections as well as
 Classes
 -------
 student()
-    Calculate and display information about an individual student
+    calculate and display information about an individual student
 assignment()
-    Calculate and display information about an individual assignment
+    calculate and display information about an individual assignment
 course()
-    Load in all data and compile/display course wide information
+    load in all data and compile/display course wide information
 section()
-    Calculate and display information about an individual section
+    calculate and display information about an individual section
+
+Methods
+-------
+determine_grade(scores)
+    returns the letter grade for the given percentage score.
 &#34;&#34;&#34;
 import os
 import json
 import pandas as pd
 
 
-&#34;&#34;&#34;
-Assign a letter grade to a percentage score.
-
-...
-
-Methods
--------
-determine_grade(scores)
-    Returns the letter grade for the given percentage score.
-&#34;&#34;&#34;
 def determine_grade(scores):
     &#34;&#34;&#34;
     Return the letter grade for the given percentage score.
     Parameters
     ----------
     scores : float
-        Percentage score to be converted
+        percentage score to be converted
     Returns
     -------
     string : str
-        Letter grade for the given score
+        letter grade for the given score
     &#34;&#34;&#34;
     if 93 &lt;= scores &lt;= 100:
         return &#39;A&#39;
@@ -119,7 +117,7 @@ class student():
     Attributes
     ----------
     uname : str
-        Student username
+        student username
     gradesD : dict
         key = assignment name, str and entry = grade, float
     nosub : lst
@@ -330,7 +328,7 @@ class course():
     Attributes
     ----------
     cname : str
-        Course name
+        course name
     avgG : float
         average student percentage grade
     snumsL : lst
@@ -646,12 +644,12 @@ Parameters</p>
 <hr>
 <dl>
 <dt><strong><code>scores</code></strong> :&ensp;<code>float</code></dt>
-<dd>Percentage score to be converted</dd>
+<dd>percentage score to be converted</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
-<dd>Letter grade for the given score</dd>
+<dd>letter grade for the given score</dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -663,11 +661,11 @@ Parameters</p>
     Parameters
     ----------
     scores : float
-        Percentage score to be converted
+        percentage score to be converted
     Returns
     -------
     string : str
-        Letter grade for the given score
+        letter grade for the given score
     &#34;&#34;&#34;
     if 93 &lt;= scores &lt;= 100:
         return &#39;A&#39;
@@ -850,7 +848,7 @@ no submission, or 0's</dd>
 <h2 id="attributes">Attributes</h2>
 <dl>
 <dt><strong><code>cname</code></strong> :&ensp;<code>str</code></dt>
-<dd>Course name</dd>
+<dd>course name</dd>
 <dt><strong><code>avgG</code></strong> :&ensp;<code>float</code></dt>
 <dd>average student percentage grade</dd>
 <dt><strong><code>snumsL</code></strong> :&ensp;<code>lst</code></dt>
@@ -890,7 +888,7 @@ assignment in lists</dd>
     Attributes
     ----------
     cname : str
-        Course name
+        course name
     avgG : float
         average student percentage grade
     snumsL : lst
@@ -1248,7 +1246,7 @@ assignment in lists</dd>
 <h2 id="attributes">Attributes</h2>
 <dl>
 <dt><strong><code>uname</code></strong> :&ensp;<code>str</code></dt>
-<dd>Student username</dd>
+<dd>student username</dd>
 <dt><strong><code>gradesD</code></strong> :&ensp;<code>dict</code></dt>
 <dd>key = assignment name, str and entry = grade, float</dd>
 <dt><strong><code>nosub</code></strong> :&ensp;<code>lst</code></dt>
@@ -1286,7 +1284,7 @@ sectDF : DataFrame
     Attributes
     ----------
     uname : str
-        Student username
+        student username
     gradesD : dict
         key = assignment name, str and entry = grade, float
     nosub : lst
@@ -1392,6 +1390,7 @@ sectDF : DataFrame
 <div class="toc">
 <ul>
 <li><a href="#classes">Classes</a></li>
+<li><a href="#methods">Methods</a></li>
 </ul>
 </div>
 <ul id="index">
