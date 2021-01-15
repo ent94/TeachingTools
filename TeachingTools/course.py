@@ -16,22 +16,17 @@ course()
     Load in all data and compile/display course wide information
 section()
     Calculate and display information about an individual section
-"""
-import os
-import json
-import pandas as pd
-
-
-"""
-Assign a letter grade to a percentage score.
-
-...
 
 Methods
 -------
 determine_grade(scores)
     Returns the letter grade for the given percentage score.
 """
+import os
+import json
+import pandas as pd
+
+
 def determine_grade(scores):
     """
     Return the letter grade for the given percentage score.
