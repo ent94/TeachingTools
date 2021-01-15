@@ -10,7 +10,7 @@ Watch an introductory video to see what TeachingTools is and how to use it
 
 ## Documentation
 
-[link to documentation](TeachingTools)
+[link to documentation](./docs/TeachingTools)
 
 ---
 
