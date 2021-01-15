@@ -26,7 +26,7 @@ init:
 	conda env create --prefix ./envs --file environment.yml
 
 docs:
-	pdoc3 --force --html --output-dir ./docs $(MODULENAME)
+	bash ./readtoind.sh        	
 
 lint:
 	pylint $(MODULENAME)

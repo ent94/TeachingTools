@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.2" />
-<title>TeachingTools.classes API documentation</title>
+<title>TeachingTools.course API documentation</title>
 <meta name="description" content="Calculate, Organize, and Display useful information when teaching a course with multiple sections …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,7 +19,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>TeachingTools.classes</code></h1>
+<h1 class="title">Module <code>TeachingTools.course</code></h1>
 </header>
 <section id="section-intro">
 <p>Calculate, Organize, and Display useful information when teaching a course with multiple sections.</p>
@@ -61,7 +61,53 @@ section()
 import os
 import json
 import pandas as pd
-from TeachingTools.functions import determine_grade
+
+
+&#34;&#34;&#34;
+Assign a letter grade to a percentage score.
+
+...
+
+Methods
+-------
+determine_grade(scores)
+    Returns the letter grade for the given percentage score.
+&#34;&#34;&#34;
+def determine_grade(scores):
+    &#34;&#34;&#34;
+    Return the letter grade for the given percentage score.
+    Parameters
+    ----------
+    scores : float
+        Percentage score to be converted
+    Returns
+    -------
+    string : str
+        Letter grade for the given score
+    &#34;&#34;&#34;
+    if 93 &lt;= scores &lt;= 100:
+        return &#39;A&#39;
+    if 90 &lt;= scores &lt; 93:
+        return &#39;A-&#39;
+    if 87 &lt;= scores &lt; 90:
+        return &#39;B+&#39;
+    if 83 &lt;= scores &lt; 87:
+        return &#39;B&#39;
+    if 80 &lt;= scores &lt; 83:
+        return &#39;B-&#39;
+    if 77 &lt;= scores &lt; 80:
+        return &#39;C+&#39;
+    if 73 &lt;= scores &lt; 77:
+        return &#39;C&#39;
+    if 70 &lt;= scores &lt; 73:
+        return &#39;C-&#39;
+    if 67 &lt;= scores &lt; 70:
+        return &#39;D+&#39;
+    if 63 &lt;= scores &lt; 67:
+        return &#39;D&#39;
+    if 60 &lt;= scores &lt; 63:
+        return &#39;D-&#39;
+    return &#39;F&#39;
 
 
 class student():
@@ -436,7 +482,7 @@ class section():
         average percentage of all students
     stuDict : dict
         key = username, str and entry = student, class object
-    snosubDict : dict
+    stud_nosub_dictict : dict
         key = username, str and entry = assignments, str, that need submission in lists
     sneedsgradeDict : dict
         key = username, str and entry = assignments, str, that need grading in lists
@@ -521,7 +567,7 @@ class section():
 
         # Create all student objects and store them in a dictionary
         sdict = {}
-        snosubD = {}
+        stud_nosub_dict = {}
         sneedsgradeD = {}
         total = 0
         stuNum = 0
@@ -530,7 +576,7 @@ class section():
         for m in stuL:
             stemp = student(m, pointsD, dataF)
             sdict[m] = stemp
-            snosubD[m] = stemp.nosub
+            stud_nosub_dict[m] = stemp.nosub
             sneedsgradeD[m] = stemp.needsgrade
 
             alltotal += stemp.shortPer
@@ -548,7 +594,7 @@ class section():
         self.shortGrade = total/stuNum
         self.allGrade = alltotal/allstuNum
         self.stuDict = sdict
-        self.snosubDict = snosubD
+        self.stud_nosub_dictict = stud_nosub_dict
         self.sneedsgradeDict = sneedsgradeD
 
     def __str__(self):
@@ -589,11 +635,71 @@ class section():
 <section>
 </section>
 <section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="TeachingTools.course.determine_grade"><code class="name flex">
+<span>def <span class="ident">determine_grade</span></span>(<span>scores)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the letter grade for the given percentage score.
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>scores</code></strong> :&ensp;<code>float</code></dt>
+<dd>Percentage score to be converted</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>Letter grade for the given score</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def determine_grade(scores):
+    &#34;&#34;&#34;
+    Return the letter grade for the given percentage score.
+    Parameters
+    ----------
+    scores : float
+        Percentage score to be converted
+    Returns
+    -------
+    string : str
+        Letter grade for the given score
+    &#34;&#34;&#34;
+    if 93 &lt;= scores &lt;= 100:
+        return &#39;A&#39;
+    if 90 &lt;= scores &lt; 93:
+        return &#39;A-&#39;
+    if 87 &lt;= scores &lt; 90:
+        return &#39;B+&#39;
+    if 83 &lt;= scores &lt; 87:
+        return &#39;B&#39;
+    if 80 &lt;= scores &lt; 83:
+        return &#39;B-&#39;
+    if 77 &lt;= scores &lt; 80:
+        return &#39;C+&#39;
+    if 73 &lt;= scores &lt; 77:
+        return &#39;C&#39;
+    if 70 &lt;= scores &lt; 73:
+        return &#39;C-&#39;
+    if 67 &lt;= scores &lt; 70:
+        return &#39;D+&#39;
+    if 63 &lt;= scores &lt; 67:
+        return &#39;D&#39;
+    if 60 &lt;= scores &lt; 63:
+        return &#39;D-&#39;
+    return &#39;F&#39;</code></pre>
+</details>
+</dd>
+</dl>
 </section>
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="TeachingTools.classes.assignment"><code class="flex name class">
+<dt id="TeachingTools.course.assignment"><code class="flex name class">
 <span>class <span class="ident">assignment</span></span>
 <span>(</span><span>aname, stuL, ptsDict, sectData)</span>
 </code></dt>
@@ -734,7 +840,7 @@ no submission, or 0's</dd>
         return rope</code></pre>
 </details>
 </dd>
-<dt id="TeachingTools.classes.course"><code class="flex name class">
+<dt id="TeachingTools.course.course"><code class="flex name class">
 <span>class <span class="ident">course</span></span>
 <span>(</span><span>directory)</span>
 </code></dt>
@@ -904,7 +1010,7 @@ assignment in lists</dd>
         return rope</code></pre>
 </details>
 </dd>
-<dt id="TeachingTools.classes.section"><code class="flex name class">
+<dt id="TeachingTools.course.section"><code class="flex name class">
 <span>class <span class="ident">section</span></span>
 <span>(</span><span>sectionnum, filename)</span>
 </code></dt>
@@ -937,7 +1043,7 @@ assignment in lists</dd>
 <dd>average percentage of all students</dd>
 <dt><strong><code>stuDict</code></strong> :&ensp;<code>dict</code></dt>
 <dd>key = username, str and entry = student, class object</dd>
-<dt><strong><code>snosubDict</code></strong> :&ensp;<code>dict</code></dt>
+<dt><strong><code>stud_nosub_dictict</code></strong> :&ensp;<code>dict</code></dt>
 <dd>key = username, str and entry = assignments, str, that need submission in lists</dd>
 <dt><strong><code>sneedsgradeDict</code></strong> :&ensp;<code>dict</code></dt>
 <dd>key = username, str and entry = assignments, str, that need grading in lists</dd>
@@ -984,7 +1090,7 @@ assignment in lists</dd>
         average percentage of all students
     stuDict : dict
         key = username, str and entry = student, class object
-    snosubDict : dict
+    stud_nosub_dictict : dict
         key = username, str and entry = assignments, str, that need submission in lists
     sneedsgradeDict : dict
         key = username, str and entry = assignments, str, that need grading in lists
@@ -1069,7 +1175,7 @@ assignment in lists</dd>
 
         # Create all student objects and store them in a dictionary
         sdict = {}
-        snosubD = {}
+        stud_nosub_dict = {}
         sneedsgradeD = {}
         total = 0
         stuNum = 0
@@ -1078,7 +1184,7 @@ assignment in lists</dd>
         for m in stuL:
             stemp = student(m, pointsD, dataF)
             sdict[m] = stemp
-            snosubD[m] = stemp.nosub
+            stud_nosub_dict[m] = stemp.nosub
             sneedsgradeD[m] = stemp.needsgrade
 
             alltotal += stemp.shortPer
@@ -1096,7 +1202,7 @@ assignment in lists</dd>
         self.shortGrade = total/stuNum
         self.allGrade = alltotal/allstuNum
         self.stuDict = sdict
-        self.snosubDict = snosubD
+        self.stud_nosub_dictict = stud_nosub_dict
         self.sneedsgradeDict = sneedsgradeD
 
     def __str__(self):
@@ -1132,7 +1238,7 @@ assignment in lists</dd>
         return rope</code></pre>
 </details>
 </dd>
-<dt id="TeachingTools.classes.student"><code class="flex name class">
+<dt id="TeachingTools.course.student"><code class="flex name class">
 <span>class <span class="ident">student</span></span>
 <span>(</span><span>username, ptsDict, sectDF)</span>
 </code></dt>
@@ -1294,19 +1400,24 @@ sectDF : DataFrame
 <li><code><a title="TeachingTools" href="index.html">TeachingTools</a></code></li>
 </ul>
 </li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="TeachingTools.course.determine_grade" href="#TeachingTools.course.determine_grade">determine_grade</a></code></li>
+</ul>
+</li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="TeachingTools.classes.assignment" href="#TeachingTools.classes.assignment">assignment</a></code></h4>
+<h4><code><a title="TeachingTools.course.assignment" href="#TeachingTools.course.assignment">assignment</a></code></h4>
 </li>
 <li>
-<h4><code><a title="TeachingTools.classes.course" href="#TeachingTools.classes.course">course</a></code></h4>
+<h4><code><a title="TeachingTools.course.course" href="#TeachingTools.course.course">course</a></code></h4>
 </li>
 <li>
-<h4><code><a title="TeachingTools.classes.section" href="#TeachingTools.classes.section">section</a></code></h4>
+<h4><code><a title="TeachingTools.course.section" href="#TeachingTools.course.section">section</a></code></h4>
 </li>
 <li>
-<h4><code><a title="TeachingTools.classes.student" href="#TeachingTools.classes.student">student</a></code></h4>
+<h4><code><a title="TeachingTools.course.student" href="#TeachingTools.course.student">student</a></code></h4>
 </li>
 </ul>
 </li>
