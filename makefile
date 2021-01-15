@@ -2,13 +2,14 @@ MODULENAME = TeachingTools
 
 help:
 	@echo ""
-	@echo "Welcome to my project!!!"
+	@echo "Welcome to TeachingTools!!!"
 	@echo "To get started create an environment using:"
 	@echo "	make init"
 	@echo "	conda activate ./envs"
 	@echo ""
 	@echo "To generate project documentation use:"
 	@echo "	make docs"
+	@echo "	source readtoind.sh"
 	@echo ""
 	@echo "To Lint the project use:"
 	@echo "	make lint"
