@@ -11,7 +11,7 @@ Watch an introductory video to see what TeachingTools is and how to use it
 
 ## Documentation
 
-[link to documentation](./docs/)
+[link to documentation](./docs/index.html)
 
 ---
 
