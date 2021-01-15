@@ -240,7 +240,7 @@ class course():
     
     Attributes
     ----------
-    cname: str
+    cname : str
         Course name
     avgG : float
         average student percentage grade
@@ -271,6 +271,9 @@ class course():
         directory : str
             directory with location of .txt data files
         """
+        if not(os.path.isdir(directory)):
+            raise ValueError("This is not a valid directory. Please check the path and try again.")
+        
         self.cname = directory[-7:-1]
 
         dictionary = {}
