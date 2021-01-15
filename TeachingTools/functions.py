@@ -11,38 +11,35 @@ determine_grade(scores)
 def determine_grade(scores):
     """
     Return the letter grade for the given percentage score.
-    
     Parameters
     ----------
     scores : float
         Percentage score to be converted
-        
     Returns
     -------
     string : str
         Letter grade for the given score
     """
-    if scores >= 93 and scores <= 100:
+    if 93 <= scores <= 100:
         return 'A'
-    elif scores >= 90 and scores < 93:
+    if 90 <= scores < 93:
         return 'A-'
-    elif scores >= 87 and scores < 90:
+    if 87 <= scores < 90:
         return 'B+'
-    elif scores >= 83 and scores < 87:
+    if 83 <= scores < 87:
         return 'B'
-    elif scores >= 80 and scores < 83:
+    if 80 <= scores < 83:
         return 'B-'
-    elif scores >= 77 and scores < 80:
+    if 77 <= scores < 80:
         return 'C+'
-    elif scores >= 73 and scores < 77:
+    if 73 <= scores < 77:
         return 'C'
-    elif scores >= 70 and scores < 73:
+    if 70 <= scores < 73:
         return 'C-'
-    elif scores >= 67 and scores < 70:
+    if 67 <= scores < 70:
         return 'D+'
-    elif scores >= 63 and scores < 67:
+    if 63 <= scores < 67:
         return 'D'
-    elif scores >= 60 and scores < 63:
+    if 60 <= scores < 63:
         return 'D-'
-    else:
-        return 'F'
+    return 'F'

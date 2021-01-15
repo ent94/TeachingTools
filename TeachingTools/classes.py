@@ -1,8 +1,8 @@
 """
 Calculate, Organize, and Display useful information when teaching a course with multiple sections.
 
-View information about individual students, assignments, and sections as well as overall course informtion
- across all sections.
+View information about individual students, assignments, and sections as well as overall course 
+ informtion across all sections.
 
 ...
 
@@ -114,15 +114,17 @@ class student():
         
         rope = ("""Student Username: {0} \n""" \
                 """Average Score: {1} \n""" \
+                """Letter Grade: {2} \n""" \
                 """------------------------ \n""" \
                 """   Missing Submission \n""" \
                 """------------------------ \n""" \
-                """{2} \n""" \
+                """{3} \n""" \
                 """------------------------ \n""" \
                 """      Needs Grading \n""" \
                 """------------------------ \n""" \
-                """{3} \n""").format(self.uname, \
+                """{4} \n""").format(self.uname, \
                                      round(self.shortPer,2), \
+                                     self.shortLet, \
                                      newDict['noSub'], \
                                      newDict['noGrade'])
         return rope
