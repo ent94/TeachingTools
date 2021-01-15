@@ -9,7 +9,6 @@ help:
 	@echo ""
 	@echo "To generate project documentation use:"
 	@echo "	make docs"
-	@echo "	source readtoind.sh"
 	@echo ""
 	@echo "To Lint the project use:"
 	@echo "	make lint"
@@ -26,7 +25,7 @@ init:
 	conda env create --prefix ./envs --file environment.yml
 
 docs:
-	pdoc3 --force --html --output-dir ./docs $(MODULENAME)
+	bash ./readtoind.sh        	
 
 lint:
 	pylint $(MODULENAME)
