@@ -1,4 +1,4 @@
-from TeachingTools import functions
+from TeachingTools import course 
 
 def test_determine_grade():
-    assert functions.determine_grade(76.4) == 'C'
+    assert course.determine_grade(76.4) == 'C'
