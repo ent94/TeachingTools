@@ -9,7 +9,6 @@ help:
 	@echo ""
 	@echo "To generate project documentation use:"
 	@echo "	make docs"
-	@echo "	source readtoind.sh"
 	@echo ""
 	@echo "To Lint the project use:"
 	@echo "	make lint"
