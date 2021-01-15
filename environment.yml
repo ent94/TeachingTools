@@ -1,0 +1,9 @@
+channels:
+  - defaults
+dependencies:
+  - jupyter
+  - autopep8
+  - pylint
+  - pytest
+  - pdoc3
+  - pandas
