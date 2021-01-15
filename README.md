@@ -1,5 +1,4 @@
 # TeachingTools
---
 
 ## Overview
 
@@ -35,4 +34,4 @@ Depenedencies can be installed individually or by creating a conda environment u
 
 	conda env create --prefix ./envs --file environment.yml
 
---
+---
