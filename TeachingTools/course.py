@@ -9,18 +9,18 @@ View information about individual students, assignments, and sections as well as
 Classes
 -------
 student()
-    Calculate and display information about an individual student
+    calculate and display information about an individual student
 assignment()
-    Calculate and display information about an individual assignment
+    calculate and display information about an individual assignment
 course()
-    Load in all data and compile/display course wide information
+    load in all data and compile/display course wide information
 section()
-    Calculate and display information about an individual section
+    calculate and display information about an individual section
 
 Methods
 -------
 determine_grade(scores)
-    Returns the letter grade for the given percentage score.
+    returns the letter grade for the given percentage score.
 """
 import os
 import json
@@ -33,11 +33,11 @@ def determine_grade(scores):
     Parameters
     ----------
     scores : float
-        Percentage score to be converted
+        percentage score to be converted
     Returns
     -------
     string : str
-        Letter grade for the given score
+        letter grade for the given score
     """
     if 93 <= scores <= 100:
         return 'A'
@@ -73,7 +73,7 @@ class student():
     Attributes
     ----------
     uname : str
-        Student username
+        student username
     gradesD : dict
         key = assignment name, str and entry = grade, float
     nosub : lst
@@ -284,7 +284,7 @@ class course():
     Attributes
     ----------
     cname : str
-        Course name
+        course name
     avgG : float
         average student percentage grade
     snumsL : lst
