@@ -23,8 +23,8 @@
 </header>
 <section id="section-intro">
 <p>Calculate, Organize, and Display useful information when teaching a course with multiple sections.</p>
-<p>View information about individual students, assignments, and sections as well as overall course informtion
-across all sections.</p>
+<p>View information about individual students, assignments, and sections as well as overall course
+informtion across all sections.</p>
 <p>&hellip;</p>
 <h2 id="classes">Classes</h2>
 <p>student()
@@ -42,8 +42,8 @@ Calculate and display information about an individual section</p>
 <pre><code class="python">&#34;&#34;&#34;
 Calculate, Organize, and Display useful information when teaching a course with multiple sections.
 
-View information about individual students, assignments, and sections as well as overall course informtion
- across all sections.
+View information about individual students, assignments, and sections as well as overall course
+ informtion across all sections.
 
 ...
 
@@ -58,18 +58,18 @@ course()
 section()
     Calculate and display information about an individual section
 &#34;&#34;&#34;
-import pandas as pd
 import os
-from TeachingTools.functions import determine_grade
 import json
+import pandas as pd
+from TeachingTools.functions import determine_grade
 
 
 class student():
     &#34;&#34;&#34;
     A class to represent a student.
-    
+
     ...
-    
+
     Attributes
     ----------
     uname : str
@@ -89,11 +89,11 @@ class student():
     shortLet : str
         letter grade excluding ungraded and unsubmitted assignemnts
     &#34;&#34;&#34;
-    
+
     def __init__(self, username, ptsDict, sectDF):
         &#34;&#34;&#34;
         Compiles and calculates all necessary information about the student object.
-        
+
         Parameters
         ----------
             username : str
@@ -104,7 +104,7 @@ class student():
                 all data for the section with username as key
         &#34;&#34;&#34;
         self.uname = username
-        
+
         nosub = []
         needsgrade = []
         shortL = []
@@ -144,27 +144,29 @@ class student():
 
     def __str__(self):
         &#34;&#34;&#34;Print useful information about each student object.&#34;&#34;&#34;
-        newDict = {&#39;noSub&#39; : json.dumps(self.nosub,indent=1)[2:-3], \
-                   &#39;noGrade&#39; : json.dumps(self.needsgrade,indent=1)[2:-3]}
+        newDict = {&#39;noSub&#39;: json.dumps(self.nosub, indent=1)[2:-3],
+                   &#39;noGrade&#39;: json.dumps(self.needsgrade, indent=1)[2:-3]}
 
         for i in newDict.keys():
-            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
-        
-        rope = (&#34;&#34;&#34;Student Username: {0} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.uname, \
-                                     round(self.shortPer,2), \
-                                     newDict[&#39;noSub&#39;], \
+            newDict[i] = newDict[i].replace(&#39;[&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;, &#39;&#39;)
+
+        rope = (&#34;&#34;&#34;Student Username: {0} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Letter Grade: {2} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{4} \n&#34;&#34;&#34;).format(self.uname,
+                                     round(self.shortPer, 2),
+                                     self.shortLet,
+                                     newDict[&#39;noSub&#39;],
                                      newDict[&#39;noGrade&#39;])
         return rope
 
@@ -172,15 +174,15 @@ class student():
 class assignment():
     &#34;&#34;&#34;
     A class to represent an assignment.
-    
+
     ...
-    
+
     Attributes
     ----------
     aname : str
         Assignment name
     avgper : float
-        average assignment percentage in the section without needs grading, 
+        average assignment percentage in the section without needs grading,
         no submission, or 0&#39;s
     avglet : str
         average assignment letter grade (based on avgper) in the section
@@ -189,11 +191,11 @@ class assignment():
     nosub : lst
         list of usernames, str, in the section that have not submitted the assignment
     &#34;&#34;&#34;
-    
+
     def __init__(self, aname, stuL, ptsDict, sectData):
         &#34;&#34;&#34;
         Compiles and calculates all necessary information about the assignment object.
-        
+
         Parameters
         ----------
         aname : str
@@ -248,27 +250,27 @@ class assignment():
 
     def __str__(self):
         &#34;&#34;&#34;Print useful information about each assignment object.&#34;&#34;&#34;
-        newDict = {&#39;noSub&#39; : json.dumps(self.nosub,indent=1)[2:-3], \
-                   &#39;noGrade&#39; : json.dumps(self.needsgrade,indent=1)[2:-3]}
+        newDict = {&#39;noSub&#39;: json.dumps(self.nosub, indent=1)[2:-3],
+                   &#39;noGrade&#39;: json.dumps(self.needsgrade, indent=1)[2:-3]}
 
         for i in newDict.keys():
-            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
-        
-        rope = (&#34;&#34;&#34;Assignment Name: {0} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.aname, \
-                                     round(self.avgper,2), \
-                                     newDict[&#39;noSub&#39;], \
+            newDict[i] = newDict[i].replace(&#39;[&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;, &#39;&#39;)
+
+        rope = (&#34;&#34;&#34;Assignment Name: {0} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.aname,
+                                     round(self.avgper, 2),
+                                     newDict[&#39;noSub&#39;],
                                      newDict[&#39;noGrade&#39;])
         return rope
 
@@ -276,12 +278,12 @@ class assignment():
 class course():
     &#34;&#34;&#34;
     A class to represent an entire course.
-    
+
     ...
-    
+
     Attributes
     ----------
-    cname: str
+    cname : str
         Course name
     avgG : float
         average student percentage grade
@@ -298,20 +300,25 @@ class course():
     sectgrades : dict
         key = section number, str and entry = average student grade, float
     assnsectnumD : dict
-        key = assignmnet name, str and entry = section numbers, str, that have that assignment in lists
+        key = assignmnet name, str and entry = section numbers, str, that have that
+         assignment in lists
     assncourseavgD : dict
         key = assignment name, str and enrtry = averge score across all sections, float
     &#34;&#34;&#34;
-    
+
     def __init__(self, directory):
         &#34;&#34;&#34;
         Compiles and calculates all necessary information about the course object.
-        
+
         Parameters
         ----------
         directory : str
             directory with location of .txt data files
         &#34;&#34;&#34;
+        if not(os.path.isdir(directory)):
+            raise ValueError(
+                &#34;This is not a valid directory. Please check the path and try again.&#34;)
+
         self.cname = directory[-7:-1]
 
         dictionary = {}
@@ -327,13 +334,13 @@ class course():
         for i in sorted(os.listdir(directory)):
             sectionnumber = i[i.find(&#39;_&#39;)+1:len(i)-4]
             listofsections.append(sectionnumber)
-            tempsect = section(sectionnumber,os.path.join(directory, i))
+            tempsect = section(sectionnumber, os.path.join(directory, i))
             dictionary[sectionnumber] = tempsect
             sectusers[sectionnumber] = tempsect.stuL
             allstuL.extend(tempsect.stuL)
             sectassn[sectionnumber] = tempsect.assignL
             sectgrades[sectionnumber] = tempsect.shortGrade
-            totG+=tempsect.shortGrade
+            totG += tempsect.shortGrade
 
         masterassnL = []
 
@@ -372,36 +379,37 @@ class course():
 
     def __str__(self):
         &#34;&#34;&#34;Print useful information about each course object.&#34;&#34;&#34;
-        newDict = {&#39;avgSectGrade&#39; : json.dumps(self.sectgrades,indent=1)[2:-2], \
-                   &#39;avgAssnGrade&#39; : json.dumps(self.assncourseavgD,indent=1)[2:-4]}
-        
+        newDict = {&#39;avgSectGrade&#39;: json.dumps(self.sectgrades, indent=1)[2:-2],
+                   &#39;avgAssnGrade&#39;: json.dumps(self.assncourseavgD, indent=1)[2:-4]}
+
         for i in newDict.keys():
-            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
-        
-        rope = (&#34;&#34;&#34;Course: {0} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Course Score: {1} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34; Average Section Score \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.cname, \
-                                     round(self.avgG,2), \
-                                     newDict[&#39;avgSectGrade&#39;], \
+            newDict[i] = newDict[i].replace(&#39;[&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;, &#39;&#39;)
+
+        rope = (&#34;&#34;&#34;Course: {0} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Course Score: {1} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34; Average Section Score \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.cname,
+                                     round(self.avgG, 2),
+                                     newDict[&#39;avgSectGrade&#39;],
                                      newDict[&#39;avgAssnGrade&#39;])
         return rope
+
 
 class section():
     &#34;&#34;&#34;
     A class to represent a section.
-    
+
     ...
-    
+
     Attributes
     ----------
     snum : str
@@ -433,11 +441,11 @@ class section():
     sneedsgradeDict : dict
         key = username, str and entry = assignments, str, that need grading in lists
     &#34;&#34;&#34;
-    
-    def __init__(self,sectionnum,filename):
+
+    def __init__(self, sectionnum, filename):
         &#34;&#34;&#34;
         Compiles and calculates all necessary information about the section object.
-        
+
         Parameters
         ----------
         filename : str
@@ -542,35 +550,36 @@ class section():
         self.stuDict = sdict
         self.snosubDict = snosubD
         self.sneedsgradeDict = sneedsgradeD
+
     def __str__(self):
         &#34;&#34;&#34;Print useful information about each section object.&#34;&#34;&#34;
-        newDict = {&#39;avgAssnGrade&#39; : json.dumps(self.agradeDict,indent=1)[2:-2], \
-                   &#39;noSub&#39; : json.dumps(self.anosubDict,indent=1)[2:-4], \
-                   &#39;noGrade&#39; : json.dumps(self.aneedsgradeDict,indent=1)[2:-4]}
+        newDict = {&#39;avgAssnGrade&#39;: json.dumps(self.agradeDict, indent=1)[2:-2],
+                   &#39;noSub&#39;: json.dumps(self.anosubDict, indent=1)[2:-4],
+                   &#39;noGrade&#39;: json.dumps(self.aneedsgradeDict, indent=1)[2:-4]}
 
         for i in newDict.keys():
-            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
-        
-        rope = (&#34;&#34;&#34;Section: {0} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Section Score: {1} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+            newDict[i] = newDict[i].replace(&#39;[&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;, &#39;&#39;)
+
+        rope = (&#34;&#34;&#34;Section: {0} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Section Score: {1} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
                 &#34;&#34;&#34;{3} \n&#34;&#34;&#34;
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{4} \n&#34;&#34;&#34;).format(self.snum, \
-                                     round(self.shortGrade,2), \
-                                     newDict[&#39;noSub&#39;], \
-                                     newDict[&#39;noGrade&#39;], \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{4} \n&#34;&#34;&#34;).format(self.snum,
+                                     round(self.shortGrade, 2),
+                                     newDict[&#39;noSub&#39;],
+                                     newDict[&#39;noGrade&#39;],
                                      newDict[&#39;avgAssnGrade&#39;])
         return rope</code></pre>
 </details>
@@ -624,15 +633,15 @@ no submission, or 0's</dd>
 <pre><code class="python">class assignment():
     &#34;&#34;&#34;
     A class to represent an assignment.
-    
+
     ...
-    
+
     Attributes
     ----------
     aname : str
         Assignment name
     avgper : float
-        average assignment percentage in the section without needs grading, 
+        average assignment percentage in the section without needs grading,
         no submission, or 0&#39;s
     avglet : str
         average assignment letter grade (based on avgper) in the section
@@ -641,11 +650,11 @@ no submission, or 0's</dd>
     nosub : lst
         list of usernames, str, in the section that have not submitted the assignment
     &#34;&#34;&#34;
-    
+
     def __init__(self, aname, stuL, ptsDict, sectData):
         &#34;&#34;&#34;
         Compiles and calculates all necessary information about the assignment object.
-        
+
         Parameters
         ----------
         aname : str
@@ -700,27 +709,27 @@ no submission, or 0's</dd>
 
     def __str__(self):
         &#34;&#34;&#34;Print useful information about each assignment object.&#34;&#34;&#34;
-        newDict = {&#39;noSub&#39; : json.dumps(self.nosub,indent=1)[2:-3], \
-                   &#39;noGrade&#39; : json.dumps(self.needsgrade,indent=1)[2:-3]}
+        newDict = {&#39;noSub&#39;: json.dumps(self.nosub, indent=1)[2:-3],
+                   &#39;noGrade&#39;: json.dumps(self.needsgrade, indent=1)[2:-3]}
 
         for i in newDict.keys():
-            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
-        
-        rope = (&#34;&#34;&#34;Assignment Name: {0} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.aname, \
-                                     round(self.avgper,2), \
-                                     newDict[&#39;noSub&#39;], \
+            newDict[i] = newDict[i].replace(&#39;[&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;, &#39;&#39;)
+
+        rope = (&#34;&#34;&#34;Assignment Name: {0} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.aname,
+                                     round(self.avgper, 2),
+                                     newDict[&#39;noSub&#39;],
                                      newDict[&#39;noGrade&#39;])
         return rope</code></pre>
 </details>
@@ -751,7 +760,8 @@ no submission, or 0's</dd>
 <dt><strong><code>sectgrades</code></strong> :&ensp;<code>dict</code></dt>
 <dd>key = section number, str and entry = average student grade, float</dd>
 <dt><strong><code>assnsectnumD</code></strong> :&ensp;<code>dict</code></dt>
-<dd>key = assignmnet name, str and entry = section numbers, str, that have that assignment in lists</dd>
+<dd>key = assignmnet name, str and entry = section numbers, str, that have that
+assignment in lists</dd>
 <dt><strong><code>assncourseavgD</code></strong> :&ensp;<code>dict</code></dt>
 <dd>key = assignment name, str and enrtry = averge score across all sections, float</dd>
 </dl>
@@ -768,12 +778,12 @@ no submission, or 0's</dd>
 <pre><code class="python">class course():
     &#34;&#34;&#34;
     A class to represent an entire course.
-    
+
     ...
-    
+
     Attributes
     ----------
-    cname: str
+    cname : str
         Course name
     avgG : float
         average student percentage grade
@@ -790,20 +800,25 @@ no submission, or 0's</dd>
     sectgrades : dict
         key = section number, str and entry = average student grade, float
     assnsectnumD : dict
-        key = assignmnet name, str and entry = section numbers, str, that have that assignment in lists
+        key = assignmnet name, str and entry = section numbers, str, that have that
+         assignment in lists
     assncourseavgD : dict
         key = assignment name, str and enrtry = averge score across all sections, float
     &#34;&#34;&#34;
-    
+
     def __init__(self, directory):
         &#34;&#34;&#34;
         Compiles and calculates all necessary information about the course object.
-        
+
         Parameters
         ----------
         directory : str
             directory with location of .txt data files
         &#34;&#34;&#34;
+        if not(os.path.isdir(directory)):
+            raise ValueError(
+                &#34;This is not a valid directory. Please check the path and try again.&#34;)
+
         self.cname = directory[-7:-1]
 
         dictionary = {}
@@ -819,13 +834,13 @@ no submission, or 0's</dd>
         for i in sorted(os.listdir(directory)):
             sectionnumber = i[i.find(&#39;_&#39;)+1:len(i)-4]
             listofsections.append(sectionnumber)
-            tempsect = section(sectionnumber,os.path.join(directory, i))
+            tempsect = section(sectionnumber, os.path.join(directory, i))
             dictionary[sectionnumber] = tempsect
             sectusers[sectionnumber] = tempsect.stuL
             allstuL.extend(tempsect.stuL)
             sectassn[sectionnumber] = tempsect.assignL
             sectgrades[sectionnumber] = tempsect.shortGrade
-            totG+=tempsect.shortGrade
+            totG += tempsect.shortGrade
 
         masterassnL = []
 
@@ -864,27 +879,27 @@ no submission, or 0's</dd>
 
     def __str__(self):
         &#34;&#34;&#34;Print useful information about each course object.&#34;&#34;&#34;
-        newDict = {&#39;avgSectGrade&#39; : json.dumps(self.sectgrades,indent=1)[2:-2], \
-                   &#39;avgAssnGrade&#39; : json.dumps(self.assncourseavgD,indent=1)[2:-4]}
-        
+        newDict = {&#39;avgSectGrade&#39;: json.dumps(self.sectgrades, indent=1)[2:-2],
+                   &#39;avgAssnGrade&#39;: json.dumps(self.assncourseavgD, indent=1)[2:-4]}
+
         for i in newDict.keys():
-            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
-        
-        rope = (&#34;&#34;&#34;Course: {0} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Course Score: {1} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34; Average Section Score \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.cname, \
-                                     round(self.avgG,2), \
-                                     newDict[&#39;avgSectGrade&#39;], \
+            newDict[i] = newDict[i].replace(&#39;[&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;, &#39;&#39;)
+
+        rope = (&#34;&#34;&#34;Course: {0} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Course Score: {1} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34; Average Section Score \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.cname,
+                                     round(self.avgG, 2),
+                                     newDict[&#39;avgSectGrade&#39;],
                                      newDict[&#39;avgAssnGrade&#39;])
         return rope</code></pre>
 </details>
@@ -940,9 +955,9 @@ no submission, or 0's</dd>
 <pre><code class="python">class section():
     &#34;&#34;&#34;
     A class to represent a section.
-    
+
     ...
-    
+
     Attributes
     ----------
     snum : str
@@ -974,11 +989,11 @@ no submission, or 0's</dd>
     sneedsgradeDict : dict
         key = username, str and entry = assignments, str, that need grading in lists
     &#34;&#34;&#34;
-    
-    def __init__(self,sectionnum,filename):
+
+    def __init__(self, sectionnum, filename):
         &#34;&#34;&#34;
         Compiles and calculates all necessary information about the section object.
-        
+
         Parameters
         ----------
         filename : str
@@ -1083,35 +1098,36 @@ no submission, or 0's</dd>
         self.stuDict = sdict
         self.snosubDict = snosubD
         self.sneedsgradeDict = sneedsgradeD
+
     def __str__(self):
         &#34;&#34;&#34;Print useful information about each section object.&#34;&#34;&#34;
-        newDict = {&#39;avgAssnGrade&#39; : json.dumps(self.agradeDict,indent=1)[2:-2], \
-                   &#39;noSub&#39; : json.dumps(self.anosubDict,indent=1)[2:-4], \
-                   &#39;noGrade&#39; : json.dumps(self.aneedsgradeDict,indent=1)[2:-4]}
+        newDict = {&#39;avgAssnGrade&#39;: json.dumps(self.agradeDict, indent=1)[2:-2],
+                   &#39;noSub&#39;: json.dumps(self.anosubDict, indent=1)[2:-4],
+                   &#39;noGrade&#39;: json.dumps(self.aneedsgradeDict, indent=1)[2:-4]}
 
         for i in newDict.keys():
-            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
-        
-        rope = (&#34;&#34;&#34;Section: {0} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Section Score: {1} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
+            newDict[i] = newDict[i].replace(&#39;[&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;, &#39;&#39;)
+
+        rope = (&#34;&#34;&#34;Section: {0} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Section Score: {1} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{2} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
                 &#34;&#34;&#34;{3} \n&#34;&#34;&#34;
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{4} \n&#34;&#34;&#34;).format(self.snum, \
-                                     round(self.shortGrade,2), \
-                                     newDict[&#39;noSub&#39;], \
-                                     newDict[&#39;noGrade&#39;], \
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Assignment Score \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{4} \n&#34;&#34;&#34;).format(self.snum,
+                                     round(self.shortGrade, 2),
+                                     newDict[&#39;noSub&#39;],
+                                     newDict[&#39;noGrade&#39;],
                                      newDict[&#39;avgAssnGrade&#39;])
         return rope</code></pre>
 </details>
@@ -1158,9 +1174,9 @@ sectDF : DataFrame
 <pre><code class="python">class student():
     &#34;&#34;&#34;
     A class to represent a student.
-    
+
     ...
-    
+
     Attributes
     ----------
     uname : str
@@ -1180,11 +1196,11 @@ sectDF : DataFrame
     shortLet : str
         letter grade excluding ungraded and unsubmitted assignemnts
     &#34;&#34;&#34;
-    
+
     def __init__(self, username, ptsDict, sectDF):
         &#34;&#34;&#34;
         Compiles and calculates all necessary information about the student object.
-        
+
         Parameters
         ----------
             username : str
@@ -1195,7 +1211,7 @@ sectDF : DataFrame
                 all data for the section with username as key
         &#34;&#34;&#34;
         self.uname = username
-        
+
         nosub = []
         needsgrade = []
         shortL = []
@@ -1235,27 +1251,29 @@ sectDF : DataFrame
 
     def __str__(self):
         &#34;&#34;&#34;Print useful information about each student object.&#34;&#34;&#34;
-        newDict = {&#39;noSub&#39; : json.dumps(self.nosub,indent=1)[2:-3], \
-                   &#39;noGrade&#39; : json.dumps(self.needsgrade,indent=1)[2:-3]}
+        newDict = {&#39;noSub&#39;: json.dumps(self.nosub, indent=1)[2:-3],
+                   &#39;noGrade&#39;: json.dumps(self.needsgrade, indent=1)[2:-3]}
 
         for i in newDict.keys():
-            newDict[i] = newDict[i].replace(&#39;[&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;]&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;&#34;&#39;,&#39;&#39;)
-            newDict[i] = newDict[i].replace(&#39;,&#39;,&#39;&#39;)
-        
-        rope = (&#34;&#34;&#34;Student Username: {0} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{2} \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34; \
-                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;).format(self.uname, \
-                                     round(self.shortPer,2), \
-                                     newDict[&#39;noSub&#39;], \
+            newDict[i] = newDict[i].replace(&#39;[&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;]&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;&#34;&#39;, &#39;&#39;)
+            newDict[i] = newDict[i].replace(&#39;,&#39;, &#39;&#39;)
+
+        rope = (&#34;&#34;&#34;Student Username: {0} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Average Score: {1} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;Letter Grade: {2} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;   Missing Submission \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{3} \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;      Needs Grading \n&#34;&#34;&#34;
+                &#34;&#34;&#34;------------------------ \n&#34;&#34;&#34;
+                &#34;&#34;&#34;{4} \n&#34;&#34;&#34;).format(self.uname,
+                                     round(self.shortPer, 2),
+                                     self.shortLet,
+                                     newDict[&#39;noSub&#39;],
                                      newDict[&#39;noGrade&#39;])
         return rope</code></pre>
 </details>

@@ -44,41 +44,38 @@ determine_grade(scores)
 def determine_grade(scores):
     &#34;&#34;&#34;
     Return the letter grade for the given percentage score.
-    
     Parameters
     ----------
     scores : float
         Percentage score to be converted
-        
     Returns
     -------
     string : str
         Letter grade for the given score
     &#34;&#34;&#34;
-    if scores &gt;= 93 and scores &lt;= 100:
+    if 93 &lt;= scores &lt;= 100:
         return &#39;A&#39;
-    elif scores &gt;= 90 and scores &lt; 93:
+    if 90 &lt;= scores &lt; 93:
         return &#39;A-&#39;
-    elif scores &gt;= 87 and scores &lt; 90:
+    if 87 &lt;= scores &lt; 90:
         return &#39;B+&#39;
-    elif scores &gt;= 83 and scores &lt; 87:
+    if 83 &lt;= scores &lt; 87:
         return &#39;B&#39;
-    elif scores &gt;= 80 and scores &lt; 83:
+    if 80 &lt;= scores &lt; 83:
         return &#39;B-&#39;
-    elif scores &gt;= 77 and scores &lt; 80:
+    if 77 &lt;= scores &lt; 80:
         return &#39;C+&#39;
-    elif scores &gt;= 73 and scores &lt; 77:
+    if 73 &lt;= scores &lt; 77:
         return &#39;C&#39;
-    elif scores &gt;= 70 and scores &lt; 73:
+    if 70 &lt;= scores &lt; 73:
         return &#39;C-&#39;
-    elif scores &gt;= 67 and scores &lt; 70:
+    if 67 &lt;= scores &lt; 70:
         return &#39;D+&#39;
-    elif scores &gt;= 63 and scores &lt; 67:
+    if 63 &lt;= scores &lt; 67:
         return &#39;D&#39;
-    elif scores &gt;= 60 and scores &lt; 63:
+    if 60 &lt;= scores &lt; 63:
         return &#39;D-&#39;
-    else:
-        return &#39;F&#39;</code></pre>
+    return &#39;F&#39;</code></pre>
 </details>
 </section>
 <section>
@@ -92,8 +89,9 @@ def determine_grade(scores):
 <span>def <span class="ident">determine_grade</span></span>(<span>scores)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Return the letter grade for the given percentage score.</p>
-<h2 id="parameters">Parameters</h2>
+<div class="desc"><p>Return the letter grade for the given percentage score.
+Parameters</p>
+<hr>
 <dl>
 <dt><strong><code>scores</code></strong> :&ensp;<code>float</code></dt>
 <dd>Percentage score to be converted</dd>
@@ -110,41 +108,38 @@ def determine_grade(scores):
 <pre><code class="python">def determine_grade(scores):
     &#34;&#34;&#34;
     Return the letter grade for the given percentage score.
-    
     Parameters
     ----------
     scores : float
         Percentage score to be converted
-        
     Returns
     -------
     string : str
         Letter grade for the given score
     &#34;&#34;&#34;
-    if scores &gt;= 93 and scores &lt;= 100:
+    if 93 &lt;= scores &lt;= 100:
         return &#39;A&#39;
-    elif scores &gt;= 90 and scores &lt; 93:
+    if 90 &lt;= scores &lt; 93:
         return &#39;A-&#39;
-    elif scores &gt;= 87 and scores &lt; 90:
+    if 87 &lt;= scores &lt; 90:
         return &#39;B+&#39;
-    elif scores &gt;= 83 and scores &lt; 87:
+    if 83 &lt;= scores &lt; 87:
         return &#39;B&#39;
-    elif scores &gt;= 80 and scores &lt; 83:
+    if 80 &lt;= scores &lt; 83:
         return &#39;B-&#39;
-    elif scores &gt;= 77 and scores &lt; 80:
+    if 77 &lt;= scores &lt; 80:
         return &#39;C+&#39;
-    elif scores &gt;= 73 and scores &lt; 77:
+    if 73 &lt;= scores &lt; 77:
         return &#39;C&#39;
-    elif scores &gt;= 70 and scores &lt; 73:
+    if 70 &lt;= scores &lt; 73:
         return &#39;C-&#39;
-    elif scores &gt;= 67 and scores &lt; 70:
+    if 67 &lt;= scores &lt; 70:
         return &#39;D+&#39;
-    elif scores &gt;= 63 and scores &lt; 67:
+    if 63 &lt;= scores &lt; 67:
         return &#39;D&#39;
-    elif scores &gt;= 60 and scores &lt; 63:
+    if 60 &lt;= scores &lt; 63:
         return &#39;D-&#39;
-    else:
-        return &#39;F&#39;</code></pre>
+    return &#39;F&#39;</code></pre>
 </details>
 </dd>
 </dl>

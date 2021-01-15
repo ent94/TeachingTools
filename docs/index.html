@@ -1,3 +1,27 @@
 <h1>TeachingTools</h1>
-<p>This repository is used for housing different tools that can be used when teaching to make life easier. It was started for CMSE802 with Dr. Dirk Colbry in Fall 2020.</p>
+<h2>Overview</h2>
+<p>When teaching any course, it is important to have up to date and accurate summaries of what is going on in the class. While learning management systems often enable instructors to summarize some useful information, there often is no flexibility and grades can be calculated differently than intended. The TeachingTools package allows for a more detailed course summary based on instructor specific needs. The package summarizes grades at the course level, section level, assignment level, and student level. It also provides lists of missing or ungraded assignments at the section, assignment, and student level as well. If a student has ever walked into your office asking "Wait... what's my grade again?????", this is the python package for you!</p>
+<h2>An Intro to TeachingTools</h2>
+<p>Watch an introductory video to see what TeachingTools is and how to use it ADD LINK TO VIDEO WHEN PUBLISHED</p>
+<h2>Documentation</h2>
 <p><a href="TeachingTools">link to documentation</a></p>
+<hr />
+<h2>Dependencies</h2>
+<ul>
+<li>python 3.7</li>
+<li><a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html">conda</a></li>
+<li><a href="https://jupyter.readthedocs.io/en/latest/install.html">jupyter</a></li>
+<li><a href="https://pypi.org/project/autopep8/">autopep8</a></li>
+<li><a href="http://pylint.pycqa.org/en/latest/user_guide/installation.html">pylint</a></li>
+<li><a href="https://docs.pytest.org/en/stable/getting-started.html">pytest</a></li>
+<li><a href="https://pypi.org/project/pdoc3/">pdoc3</a></li>
+<li><a href="https://pandas.pydata.org/getting_started.html">pandas</a></li>
+</ul>
+<p>Dependencies can be installed individually or by creating a conda environment using the command below:</p>
+<p><strong>With makefile:</strong>  </p>
+<pre><code>make init
+</code></pre>
+<p><strong>Manually:</strong>  </p>
+<pre><code>conda env create --prefix ./envs --file environment.yml
+</code></pre>
+<hr />
